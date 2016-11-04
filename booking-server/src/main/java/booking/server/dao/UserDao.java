@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 
 import booking.server.entity.User;
+import booking.server.types.UserLevel;
 
 @Repository
 public class UserDao 
@@ -16,9 +17,7 @@ public class UserDao
 	static
 	{
 		users = new HashMap<>();
-		users.put(1, new User(1, "Pawel", "Infa"));
-		users.put(2, new User(2, "Karol", "Infa"));
-		users.put(3, new User(3, "Adam", "Infa"));
+		users.put(1, new User(1, "pustypawel", "mojakupa", UserLevel.ADMIN));
 	}
 	
 	public Collection<User> getUsers() 

@@ -27,10 +27,9 @@ public class UserController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String saveUser(@RequestBody User user)
+	public User saveUser(@RequestBody User user)
 	{
-		userService.saveUser(user);
-		return "ok";
+		return userService.saveUser(user);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)

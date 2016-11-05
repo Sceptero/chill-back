@@ -13,7 +13,7 @@ public interface UserService {
 	
 	void deleteUserById(long id);
 	
-	void saveUser(User user);
+	User saveUser(User user);
 
 	List<User> getUserByLevel(UserLevel userLevel);
 }

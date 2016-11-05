@@ -1,16 +1,11 @@
 package booking.server.repositories;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.persistence.EntityManager;
-
-import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder.EntityManagerFactoryBeanCallback;
-
 import booking.server.entities.Resource;
 
-
+ 
 public class ResourcesRepository 
 {
 	private static Map<Long, Resource> resources;

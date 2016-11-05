@@ -1,16 +1,15 @@
-package booking.server.services;
+package booking.server.services.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import booking.server.entities.User;
 import booking.server.repositories.UserRepository;
- 
-@Service
-public class BookingService 
-{
+
+public class UserServiceImpl
+	implements UserService{
+	
 	@Autowired
-	private UserRepository userRepository;
+	private UserRepository userRepository; 
 	
 	public Iterable<User> getUsers()
 	{
@@ -31,4 +30,3 @@ public class BookingService
 		userRepository.save(user);
 	}
 }
-

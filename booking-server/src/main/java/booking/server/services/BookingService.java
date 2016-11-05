@@ -1,18 +1,18 @@
-package booking.server.service;
+package booking.server.services;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import booking.server.dao.UserDao;
-import booking.server.entity.User;
+import booking.server.entities.User;
+import booking.server.repositories.UserRepository;
  
 @Service
 public class BookingService 
 {
 	@Autowired
-	private UserDao userDao;
+	private UserRepository userDao;
 	
 	public Collection<User> getUsers()
 	{

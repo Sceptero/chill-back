@@ -1,4 +1,4 @@
-package booking.server.dao;
+package booking.server.repositories;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -6,11 +6,11 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
-import booking.server.entity.User;
-import booking.server.types.UserLevel;
+import booking.server.entities.User;
+import enums.UserLevel;
 
 @Repository
-public class UserDao 
+public class UserRepository 
 {
 	private static Map<Integer, User> users;
 	

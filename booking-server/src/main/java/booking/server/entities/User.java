@@ -1,6 +1,6 @@
-package booking.server.entity;
+package booking.server.entities;
 
-import booking.server.types.UserLevel;
+import enums.UserLevel;
 
 public class User 
 {

@@ -1,4 +1,4 @@
-package booking.server.controller;
+package booking.server.controllers;
 
 import java.util.Collection;
 
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import booking.server.entity.User;
-import booking.server.service.BookingService;
+import booking.server.entities.User;
+import booking.server.services.BookingService;
 
 @RestController
 @RequestMapping("/api/users")

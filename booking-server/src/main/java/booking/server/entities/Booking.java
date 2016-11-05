@@ -14,12 +14,12 @@ import java.util.Date;
 @Entity
 public class Booking implements Serializable{
 
-    public Booking(Long id, Long userId, Date startDate, Date endDate, Long resourceId) {
+    public Booking(Long id, Date startDate, Date endDate, Resource resource, User user) {
         this.id = id;
-        this.userId = userId;
+        this.user = user;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.resourceId = resourceId;
+        this.resource = resource;
     }
 
     public Booking() {}
@@ -27,21 +27,23 @@ public class Booking implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO )
     Long id;
 
-    Long userId;
-
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd,HH:00", timezone="CET")
     Date startDate;
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd,HH:00", timezone="CET")
     Date endDate;
 
-    Long resourceId;
+    @ManyToOne
+    Resource resource;
+
+    @ManyToOne
+    User user;
 
     public Long getId() {
         return id;
     }
 
-    public Long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
     
     public Date getStartDate() {
@@ -52,7 +54,7 @@ public class Booking implements Serializable{
         return endDate;
     }
 
-    public Long getResourceId() {
-        return resourceId;
+    public Resource getResource() {
+        return resource;
     }
 }

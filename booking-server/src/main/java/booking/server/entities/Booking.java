@@ -1,8 +1,15 @@
 package booking.server.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 /**
  * Created by Wojtek on 2016-11-05.
@@ -10,28 +17,34 @@ import java.sql.Date;
 @Entity
 public class Booking implements Serializable{
 
+    public Booking(Long id, Long userId, Date startDate, Date endDate, Long resourceId) {
+        this.id = id;
+        this.userId = userId;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.resourceId = resourceId;
+    }
+
+    public Booking() {}
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO )
-    Long Id;
+    Long id;
 
-    @Column(name = "USER_ID")
+    @Embedded
     Long userId;
 
-    @Column(name = "START_DATE")
     Date startDate;
 
-    @Column(name = "END_DATE")
     Date endDate;
 
-    @Column(name = "RESOURCE_ID")
     Long resourceId;
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        id = id;
     }
 
     public Long getUserId() {

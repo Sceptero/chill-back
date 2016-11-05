@@ -21,7 +21,7 @@ public class ResourceController {
 	private ResourcesService resourceService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public Iterable<Resource> getResources()
+	public List<Resource> getResources()
 	{
 		return resourceService.getResources();
 	}

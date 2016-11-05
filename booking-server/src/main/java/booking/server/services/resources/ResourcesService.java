@@ -7,7 +7,7 @@ import booking.server.enums.ResourceType;
 
 public interface ResourcesService 
 {
-	Iterable<Resource> getResources();
+	List<Resource> getResources();
 	
 	void saveResource(Resource resource);
 	

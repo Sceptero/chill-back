@@ -1,7 +1,9 @@
 package booking.server.services.resources;
 
+import java.util.Iterator;
 import java.util.List;
 
+import org.apache.commons.collections.IteratorUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +17,12 @@ public class ResourcesServiceImpl implements ResourcesService
 	@Autowired
 	ResourcesRepository resourceRepository;
 
-	public Iterable<Resource> getResources() 
+	@SuppressWarnings("unchecked")
+	public List<Resource> getResources() 
 	{
-		return resourceRepository.findAll();
+		Iterable<Resource> iterable = resourceRepository.findAll();
+		Iterator<Resource> iterator = iterable.iterator();
+		return IteratorUtils.toList(iterator);
 	}
 
 	public void saveResource(Resource resource) 

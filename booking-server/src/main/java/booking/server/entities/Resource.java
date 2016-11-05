@@ -12,7 +12,9 @@ public class Resource
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String name;
+	private String description;
 	
+	@SuppressWarnings("unused")
 	private Resource()
 	{
 		
@@ -29,5 +31,9 @@ public class Resource
 
 	public String getName() {
 		return name;
+	}
+	
+	public String getDescription() {
+		return description;
 	}
 }

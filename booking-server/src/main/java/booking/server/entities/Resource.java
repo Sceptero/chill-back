@@ -1,9 +1,13 @@
 package booking.server.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import booking.server.enums.ResourceType;
 
 @Entity
 public class Resource 
@@ -14,15 +18,23 @@ public class Resource
 	private String name;
 	private String description;
 	
-	@SuppressWarnings("unused")
-	private Resource()
+	@Enumerated(EnumType.ORDINAL)
+	private ResourceType type;
+	
+	Resource()
 	{
 		
 	}
 	
-	public Resource(long id, String name) {
+	public Resource(
+			final long id, 
+			final String name,
+			final String description,
+			final ResourceType type) {
 		this.id = id;
 		this.name = name;
+		this.description = description;
+		this.type = type;
 	}
 
 	public long getId() {
@@ -35,5 +47,10 @@ public class Resource
 	
 	public String getDescription() {
 		return description;
+	}
+	
+	public ResourceType getResourceType()
+	{
+		return type;
 	}
 }

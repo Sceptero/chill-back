@@ -1,5 +1,7 @@
 package booking.server.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import booking.server.entities.Resource;
+import booking.server.enums.ResourceType;
 import booking.server.services.resources.ResourcesService;
 
 @RestController
@@ -30,11 +33,18 @@ public class ResourceController {
 		return "ok";
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/get-by-id/{id}", method = RequestMethod.GET)
 	public Resource getResourceById(
 			@PathVariable("id") long id)
 	{ 
 		return resourceService.getById(id);
+	}
+	
+	@RequestMapping(value = "/get-by-type/{type}", method = RequestMethod.GET)
+	public List<Resource> getByType(
+			@PathVariable("type") int type)
+	{
+		return resourceService.getByType(ResourceType.fromInt(type));
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

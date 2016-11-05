@@ -10,6 +10,8 @@ import booking.server.enums.UserLevel;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long>
-{
+{ 
 	List<User> findByUserLevel(UserLevel userLevel);
+
+	User findByLogin(String login);
 }

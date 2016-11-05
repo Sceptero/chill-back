@@ -7,7 +7,7 @@ import booking.server.enums.UserLevel;
 
 public interface UserService {
 	
-	Iterable<User> getUsers();
+	List<User> getUsers();
 	
 	User getUserById(long id);
 	
@@ -16,4 +16,6 @@ public interface UserService {
 	User saveUser(User user);
 
 	List<User> getUserByLevel(UserLevel userLevel);
+
+	User getUserByLogin(String name);
 }

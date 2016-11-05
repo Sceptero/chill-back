@@ -11,6 +11,7 @@ public class Resource
 {
 	@Column(name="Id")
 	private final long id;
+
 	@Column(name="name")
 	private final String name;
 	

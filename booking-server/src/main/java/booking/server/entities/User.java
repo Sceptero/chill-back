@@ -5,7 +5,6 @@ import javax.persistence.*;
 import booking.server.enums.UserLevel;
 
 @Entity
-@Embeddable
 public class User  
 {
 	@Id

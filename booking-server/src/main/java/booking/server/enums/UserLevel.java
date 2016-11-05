@@ -1,4 +1,4 @@
-package enums;
+package booking.server.enums;
 
 public enum UserLevel {
 

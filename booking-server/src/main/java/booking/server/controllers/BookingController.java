@@ -1,7 +1,5 @@
 package booking.server.controllers;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,21 +17,28 @@ public class BookingController
 	private BookingService bookingService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public Collection<User> getUsers()
+	public Iterable<User> getUsers()
 	{
 		return bookingService.getUsers();
 	}
 	
+	@RequestMapping(method = RequestMethod.POST)
+	public String saveUser(User user)
+	{
+		bookingService.saveUser(user);
+		return "ok";
+	}
+	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public User getUserById(
-			@PathVariable("id") int id)
+			@PathVariable("id") long id)
 	{ 
 		return bookingService.getUserById(id);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public void deleteUserById(
-			@PathVariable("id") int id)
+			@PathVariable("id") long id)
 	{
 		bookingService.deleteUserById(id);
 	}

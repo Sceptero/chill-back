@@ -1,7 +1,5 @@
 package booking.server.services;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,21 +10,25 @@ import booking.server.repositories.UserRepository;
 public class BookingService 
 {
 	@Autowired
-	private UserRepository userDao;
+	private UserRepository userRepository;
 	
-	public Collection<User> getUsers()
+	public Iterable<User> getUsers()
 	{
-		return userDao.getUsers();
+		return userRepository.findAll();
 	}
 
-	public User getUserById(int id) 
+	public User getUserById(long id) 
 	{
-		return userDao.getUserById(id);
+		return userRepository.findOne(id);
 	}
 
-	public void deleteUserById(int id) 
+	public void deleteUserById(long id) 
 	{
-		userDao.deleteUserById(id);
+		userRepository.delete(id);
+	}
+
+	public void saveUser(User user) {
+		userRepository.save(user);
 	}
 }
 

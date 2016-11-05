@@ -1,13 +1,29 @@
 package booking.server.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import enums.UserLevel;
 
-public class User 
+@Entity
+public class User  
 {
-	private final int id;
-	private final String login;
-	private final String password;
-	private final UserLevel userLevel;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	private String login;
+	private String password;
+	
+	@Enumerated(EnumType.ORDINAL)
+	private UserLevel userLevel;
+	
+	User()
+	{ 
+	}
 
 	public User(int id, String login, String password, UserLevel userLevel) {
 		this.id = id;

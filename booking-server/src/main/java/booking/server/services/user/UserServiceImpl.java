@@ -15,7 +15,7 @@ import booking.server.repositories.UserRepository;
 
 @Service
 public class UserServiceImpl
-	implements UserService{
+	implements UserService{ 
 	
 	@Autowired
 	private UserRepository userRepository; 

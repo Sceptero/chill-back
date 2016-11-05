@@ -40,11 +40,12 @@ public class ResourceController {
 		return resourceService.getById(id);
 	}
 	
-	@RequestMapping(value = "/get-by-type/{type}", method = RequestMethod.GET)
+	@RequestMapping(value = "/get-by-type/{typeId}", method = RequestMethod.GET)
 	public List<Resource> getByType(
-			@PathVariable("type") int type)
+			@PathVariable("typeId") int typeId)
 	{
-		return resourceService.getByType(ResourceType.fromInt(type));
+		ResourceType type = ResourceType.fromInt(typeId);
+		return resourceService.getByType(type);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

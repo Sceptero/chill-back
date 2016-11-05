@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import enums.UserLevel;
+import booking.server.enums.UserLevel;
 
 @Entity
 public class User  

@@ -6,7 +6,6 @@ public class Resource
 	private final String name;
 	
 	public Resource(long id, String name) {
-		super();
 		this.id = id;
 		this.name = name;
 	}

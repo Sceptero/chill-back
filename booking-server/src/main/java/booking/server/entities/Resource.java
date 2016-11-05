@@ -1,4 +1,4 @@
-package booking.server.entity;
+package booking.server.entities;
 
 public class Resource 
 {

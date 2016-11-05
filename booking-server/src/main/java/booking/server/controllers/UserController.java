@@ -21,7 +21,7 @@ public class UserController {
 	private UserService userService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public Iterable<User> getUsers()
+	public List<User> getUsers()
 	{
 		return userService.getUsers();
 	}
@@ -45,6 +45,13 @@ public class UserController {
 	{
 		UserLevel userLevel = UserLevel.fromInt(userLevelId);
 		return userService.getUserByLevel(userLevel);
+	}
+	
+	@RequestMapping(value = "/byLogin/{login}", method = RequestMethod.GET)
+	public User getUserByName(
+			@PathVariable("login") String login)
+	{
+		return userService.getUserByLogin(login);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

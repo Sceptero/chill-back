@@ -1,8 +1,17 @@
 package booking.server.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Resources")
 public class Resource 
 {
+	@Column(name="Id")
 	private final long id;
+	@Column(name="name")
 	private final String name;
 	
 	public Resource(long id, String name) {

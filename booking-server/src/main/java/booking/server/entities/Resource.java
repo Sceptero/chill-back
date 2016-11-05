@@ -9,11 +9,6 @@ import javax.persistence.Id;
 public class Resource 
 {
 	@Id
-	private final long id;
-
-	@Column(name="name")
-	private final String name;
-	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String name;
@@ -22,6 +17,7 @@ public class Resource
 	{
 		
 	}
+	
 	public Resource(long id, String name) {
 		this.id = id;
 		this.name = name;
